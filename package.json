@@ -1,0 +1,13 @@
+{
+  "name": "wealth-wellness-hub-mvp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Seeding-round MVP: RWA portfolio demo and mock APIs",
+  "scripts": {
+    "start:api": "node api/server.js",
+    "start": "node api/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

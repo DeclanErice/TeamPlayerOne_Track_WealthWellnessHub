@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wealth Wellness Hub MVP Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <section class="hero">
+        <h1>Wealth Wellness Hub</h1>
+        <p>RWA-first dashboard for tokenized gold, treasuries, and real-estate assets.</p>
+        <div class="actions">
+          <button class="btn-primary" id="connectBtn">Connect Wallet (Demo)</button>
+          <button class="btn-secondary" id="loadLocalBtn">Load Local Data</button>
+          <button class="btn-secondary" id="loadApiBtn">Load API Data</button>
+        </div>
+      </section>
+
+      <section class="grid grid-top">
+        <article class="card">
+          <div class="kpi-label">Total Portfolio Value</div>
+          <div class="kpi-value" id="totalValue">$0.00</div>
+          <div class="kpi-sub">Across all RWA categories</div>
+        </article>
+        <article class="card">
+          <div class="kpi-label">Blended Yield</div>
+          <div class="kpi-value" id="blendedYield">0%</div>
+          <div class="kpi-sub">Weighted by position size</div>
+        </article>
+        <article class="card">
+          <div class="kpi-label">Yield Spread</div>
+          <div class="kpi-value" id="spreadValue">0%</div>
+          <div class="kpi-sub">Compared to reference T-bill rate</div>
+        </article>
+        <article class="card">
+          <div class="kpi-label">Estimated Annual Income</div>
+          <div class="kpi-value" id="annualIncome">$0.00</div>
+          <div class="kpi-sub">Based on indicative yield</div>
+        </article>
+        <article class="card">
+          <div class="kpi-label">Largest Position</div>
+          <div class="kpi-value" id="concentrationValue">0%</div>
+          <div class="kpi-sub">Single-asset concentration</div>
+        </article>
+        <article class="card">
+          <div class="kpi-label">Portfolio Risk Score</div>
+          <div class="kpi-value" id="riskValue">0.0 / 5</div>
+          <div class="kpi-sub">Weighted by position size</div>
+        </article>
+      </section>
+
+      <section class="card dashboard-section">
+        <div class="section-head">
+          <h3>Allocation and Contribution</h3>
+          <div class="view-switch" role="group" aria-label="Distribution view switch">
+            <button class="switch-btn is-active" id="viewAllocationBtn">Allocation %</button>
+            <button class="switch-btn" id="viewContributionBtn">Income Contribution %</button>
+          </div>
+        </div>
+        <div id="distributionList"></div>
+      </section>
+
+      <section class="card dashboard-section">
+        <div class="section-head">
+          <h3>Holdings Table</h3>
+          <div class="table-controls">
+            <input id="searchInput" type="search" placeholder="Search symbol, name, or issuer" />
+            <select id="classFilter">
+              <option value="all">All Asset Classes</option>
+            </select>
+            <select id="complianceFilter">
+              <option value="all">All Compliance Tags</option>
+            </select>
+            <select id="sortBy">
+              <option value="value_desc">Sort: Value (High to Low)</option>
+              <option value="value_asc">Sort: Value (Low to High)</option>
+              <option value="allocation_desc">Sort: Allocation %</option>
+              <option value="apy_desc">Sort: APY (High to Low)</option>
+              <option value="risk_desc">Sort: Risk (High to Low)</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Asset</th>
+                <th>Issuer</th>
+                <th>Value</th>
+                <th>Allocation</th>
+                <th>APY</th>
+                <th>Est. Annual Income</th>
+                <th>Risk</th>
+                <th>Liquidity</th>
+                <th>Compliance</th>
+              </tr>
+            </thead>
+            <tbody id="holdingsBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card dashboard-section">
+        <h3>Alerts and Insights</h3>
+        <ul class="alert-list" id="alertsList"></ul>
+      </section>
+
+      <div class="status" id="status">Loading...</div>
+      <div class="footer">Seeding round demo: local-first rendering with API fallback.</div>
+    </div>
+
+    <script src="data/defaultPortfolio.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

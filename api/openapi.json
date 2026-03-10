@@ -1,0 +1,131 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Wealth Wellness Hub MVP API",
+    "version": "0.1.0",
+    "description": "Mock API layer for seeding-round demo"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8787"
+    }
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "summary": "Health check",
+        "responses": {
+          "200": {
+            "description": "Service health"
+          }
+        }
+      }
+    },
+    "/api/assets/catalog": {
+      "get": {
+        "summary": "Get RWA asset catalog",
+        "responses": {
+          "200": {
+            "description": "Asset metadata list"
+          }
+        }
+      }
+    },
+    "/api/portfolio/default": {
+      "get": {
+        "summary": "Get default demo portfolio",
+        "responses": {
+          "200": {
+            "description": "Enriched portfolio"
+          }
+        }
+      }
+    },
+    "/api/portfolio/wallet/{walletAddress}": {
+      "get": {
+        "summary": "Get mock wallet portfolio",
+        "parameters": [
+          {
+            "name": "walletAddress",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Enriched portfolio"
+          },
+          "404": {
+            "description": "Portfolio not found"
+          }
+        }
+      }
+    },
+    "/api/yield/reference": {
+      "get": {
+        "summary": "Get reference T-bill rate",
+        "responses": {
+          "200": {
+            "description": "Reference rate"
+          }
+        }
+      }
+    },
+    "/api/portfolio/value": {
+      "post": {
+        "summary": "Value ad-hoc holdings",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "walletAddress": {
+                    "type": "string"
+                  },
+                  "referenceTBillRate": {
+                    "type": "number"
+                  },
+                  "holdings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "symbol": {
+                          "type": "string"
+                        },
+                        "quantity": {
+                          "type": "number"
+                        },
+                        "price": {
+                          "type": "number"
+                        },
+                        "assetClass": {
+                          "type": "string"
+                        }
+                      },
+                      "required": ["symbol", "quantity", "price"]
+                    }
+                  }
+                },
+                "required": ["holdings"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Valued and enriched portfolio"
+          },
+          "400": {
+            "description": "Validation or JSON parse error"
+          }
+        }
+      }
+    }
+  }
+}

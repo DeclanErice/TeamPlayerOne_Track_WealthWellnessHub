@@ -1,0 +1,32 @@
+{
+  "walletAddress": "demo-local-wallet",
+  "asOf": "2026-03-06T09:00:00Z",
+  "baseCurrency": "USD",
+  "referenceTBillRate": 5.1,
+  "holdings": [
+    {
+      "symbol": "PAXG",
+      "quantity": 0.5,
+      "price": 5173.0,
+      "assetClass": "Gold & Commodities"
+    },
+    {
+      "symbol": "USYC",
+      "quantity": 12000,
+      "price": 1.0,
+      "assetClass": "Fixed Income"
+    },
+    {
+      "symbol": "BUIDL",
+      "quantity": 4000,
+      "price": 1.0,
+      "assetClass": "Fixed Income"
+    },
+    {
+      "symbol": "FIGR_HELOC",
+      "quantity": 2500,
+      "price": 1.02,
+      "assetClass": "Real Estate"
+    }
+  ]
+}

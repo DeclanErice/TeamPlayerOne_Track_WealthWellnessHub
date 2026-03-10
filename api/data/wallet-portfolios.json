@@ -1,0 +1,22 @@
+{
+  "0xdemo123": {
+    "walletAddress": "0xdemo123",
+    "asOf": "2026-03-06T09:00:00Z",
+    "baseCurrency": "USD",
+    "referenceTBillRate": 5.1,
+    "holdings": [
+      {
+        "symbol": "PAXG",
+        "quantity": 0.33,
+        "price": 5173.0,
+        "assetClass": "Gold & Commodities"
+      },
+      {
+        "symbol": "USYC",
+        "quantity": 9000,
+        "price": 1.0,
+        "assetClass": "Fixed Income"
+      }
+    ]
+  }
+}
